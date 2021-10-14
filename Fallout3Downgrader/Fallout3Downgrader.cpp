@@ -77,9 +77,13 @@ int main()
 	}
 	else if (strcmp(outHash, f31703modhash) == 0) {
 
-		std::cout << "\nThe game is already downgraded.\n";
+		std::cout << "The game is already downgraded.\n";
 		system("@pause");
 
+	}
+	else {
+		std::cout << "Invalid executable\n";
+		system("@pause");
 	}
 	
 }
