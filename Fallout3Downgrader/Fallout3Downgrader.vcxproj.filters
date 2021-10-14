@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\bin">
+      <UniqueIdentifier>{6d93eedc-84cf-4e8f-8ebc-2da2173fc1ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fallout3Downgrader.cpp">
@@ -32,5 +35,16 @@
     <ClInclude Include="Utility.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\patch_gog.vcdiff">
+      <Filter>Source Files\bin</Filter>
+    </None>
+    <None Include="bin\patch_steam.vcdiff">
+      <Filter>Source Files\bin</Filter>
+    </None>
+    <None Include="bin\xdelta3.exe">
+      <Filter>Source Files\bin</Filter>
+    </None>
   </ItemGroup>
 </Project>
