@@ -5,7 +5,7 @@
 #include <iostream>
 
 static const char* f31704hash = "6D09781426A5C61AED59ADDEC130A8009849E3C7";
-static const char* f31703hash = "8A98757889D9164BF8EC0FD0118FEE96691939DE";
+static const char* f31703hash = "7A6D3948B6D0BD7BE97B71769A14D3C084609331";
 
 bool GetSHA1File(const char* filePath, char* outHash)
 {
@@ -69,7 +69,8 @@ int main()
 
 		sprintf(commandline, "\"\"%s\\xdelta3.exe\" -v -d -f -s \"%s\\Fallout3_backup.exe\" \"%s\\patch_1704_to_1703.vcdiff\" \"%s\\Fallout3.exe\"\"", cPath, cPath, cPath, cPath);
 		system(commandline);
-
+		sprintf(commandline, "\"\"%s\\xdelta3.exe\" -v -d -f -s \"%s\\FalloutLauncherSteam.exe\" \"%s\\patch_launcher.vcdiff\" \"%s\\FalloutLauncher.exe\"\"", cPath, cPath, cPath, cPath);
+		system(commandline);
 		GetSHA1File(exe_path.c_str(), outHash);
 
 		if (strcmp(outHash, f31703hash) == 0) {
