@@ -67,7 +67,7 @@ int main()
 		output.close();
 		std::cout << "\nBackup created.\n\n";
 
-		sprintf(commandline, "%s\\xdelta3.exe -v -d -f -s \"%s\\Fallout3_backup.exe\" \"%s\\patch.vcdiff\" \"%s\\Fallout3.exe\"", cPath, cPath, cPath, cPath);
+		sprintf(commandline, "\"\"%s\\xdelta3.exe\" -v -d -f -s \"%s\\Fallout3_backup.exe\" \"%s\\patch.vcdiff\" \"%s\\Fallout3.exe\"\"", cPath, cPath, cPath, cPath);
 		system(commandline);
 
 		GetSHA1File(exe_path.c_str(), outHash);
