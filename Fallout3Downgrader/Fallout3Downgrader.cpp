@@ -5,7 +5,7 @@
 #include <iostream>
 
 static const char* f31704hash = "6D09781426A5C61AED59ADDEC130A8009849E3C7";
-static const char* f31703modhash = "F43F16CD4785D974ADD0E9DA08B7C7F523C1538C";
+static const char* f31703hash = "8A98757889D9164BF8EC0FD0118FEE96691939DE";
 
 bool GetSHA1File(const char* filePath, char* outHash)
 {
@@ -67,19 +67,19 @@ int main()
 		output.close();
 		std::cout << "\nBackup created.\n\n";
 
-		sprintf(commandline, "%s\\xdelta3.exe -v -d -f -s \"%s\\Fallout3_backup.exe\" \"%s\\patch.vcdiff\" \"%s\\Fallout3.exe\"", cPath, cPath, cPath, cPath);
+		sprintf(commandline, "%s\\xdelta3.exe -v -d -f -s \"%s\\Fallout3_backup.exe\" \"%s\\patch_1704_to_1703.vcdiff\" \"%s\\Fallout3.exe\"", cPath, cPath, cPath, cPath);
 		system(commandline);
 
 		GetSHA1File(exe_path.c_str(), outHash);
 
-		if (strcmp(outHash, f31703modhash) == 0) {
+		if (strcmp(outHash, f31703hash) == 0) {
 
 			std::cout << "\nDowngrading completed successfully.\n";
 			system("@pause");
 
 		}
 	}
-	else if (strcmp(outHash, f31703modhash) == 0) {
+	else if (strcmp(outHash, f31703hash) == 0) {
 
 		std::cout << "The game is already downgraded.\n";
 		system("@pause");
