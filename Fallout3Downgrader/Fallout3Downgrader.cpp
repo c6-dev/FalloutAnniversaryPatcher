@@ -7,10 +7,10 @@
 static const char* f31704hash = "6D09781426A5C61AED59ADDEC130A8009849E3C7";
 static const char* f31703modhash = "F43F16CD4785D974ADD0E9DA08B7C7F523C1538C";
 
-void GetSHA1File(const char* filePath, char* outHash)
+bool GetSHA1File(const char* filePath, char* outHash)
 {
 	FileStream sourceFile;
-	if (!sourceFile.Open(filePath)) return;
+	if (!sourceFile.Open(filePath)) return false;
 
 	SHA1 sha;
 
@@ -32,6 +32,7 @@ void GetSHA1File(const char* filePath, char* outHash)
 
 	for (byte idx = 0; idx < 0x14; idx++, outHash += 2)
 		sprintf_s(outHash, 3, "%02X", digest[idx]);
+	return true;
 }
 
 int main()
@@ -47,7 +48,10 @@ int main()
 	std::string exe_path = path + "\\Fallout3.exe";
 	std::string backup_path = path + "\\Fallout3_backup.exe";
 
-    GetSHA1File(exe_path.c_str(), outHash);
+	if (!GetSHA1File(exe_path.c_str(), outHash)) {
+		std::cout << "Couldn't open Fallout3.exe\n";
+		system("@pause");
+	}
 
 	if (strcmp(outHash, f31704hash) == 0) {
 
@@ -82,7 +86,7 @@ int main()
 
 	}
 	else {
-		std::cout << "Invalid executable\n";
+		std::cout << "Invalid executable.\n";
 		system("@pause");
 	}
 	
