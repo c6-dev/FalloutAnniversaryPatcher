@@ -52,6 +52,7 @@ int main()
 	if (!GetSHA1File(exe_path.c_str(), outHash)) {
 		std::cout << "Couldn't open Fallout3.exe\n";
 		system("@pause");
+		return 0;
 	}
 	bool steamMode = (strcmp(outHash, f3_1704_steam) == 0);
 	bool gogMode = (strcmp(outHash, f3_1703_gog) == 0);
