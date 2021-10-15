@@ -153,6 +153,7 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="sha1.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
@@ -160,6 +161,12 @@
     <None Include="bin\patch_gog.vcdiff" />
     <None Include="bin\patch_steam.vcdiff" />
     <None Include="bin\xdelta3.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Fallout3Downgrader.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\patcherIcon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
