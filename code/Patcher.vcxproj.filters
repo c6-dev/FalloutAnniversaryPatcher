@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Fallout3Downgrader.cpp">
+    <ClCompile Include="Patcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sha1.cpp">
@@ -51,13 +51,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Fallout3Downgrader.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="..\..\..\..\Downloads\patcherIcon.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Patcher.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

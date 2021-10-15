@@ -24,6 +24,7 @@
     <ProjectGuid>{2de59543-0364-43f4-bf71-dbed72e2287f}</ProjectGuid>
     <RootNamespace>Fallout3Downgrader</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Patcher</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -148,7 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Fallout3Downgrader.cpp" />
+    <ClCompile Include="Patcher.cpp" />
     <ClCompile Include="sha1.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
@@ -163,10 +164,10 @@
     <None Include="bin\xdelta3.exe" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Fallout3Downgrader.rc" />
+    <Image Include="..\..\..\..\Downloads\patcherIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Downloads\patcherIcon.ico" />
+    <ResourceCompile Include="Patcher.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
