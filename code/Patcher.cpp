@@ -6,7 +6,7 @@
 
 static const char* f3_1704_steam = "6D09781426A5C61AED59ADDEC130A8009849E3C7";
 static const char* f3_1703_gog = "FEB875F0EEC87D2D4854C56DD9CF1F75EC07A3B3";
-static const char* f3_1703_mod = "B0E7A12413E3D38174B3C7B3B4ECA1147F4F3EB0";
+static const char* f3_1703_mod = "2E57141A77A5AEE21518755EB32245663036EEF4";
 
 bool GetSHA1File(const char* filePath, char* outHash)
 {
