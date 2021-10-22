@@ -7,6 +7,7 @@
 static const char* f3_1704_steam = "6D09781426A5C61AED59ADDEC130A8009849E3C7";
 static const char* f3_1703_gog = "FEB875F0EEC87D2D4854C56DD9CF1F75EC07A3B3";
 static const char* f3_1703_mod = "2E57141A77A5AEE21518755EB32245663036EEF4";
+static const char* f3_1703_mod_old = "F43F16CD4785D974ADD0E9DA08B7C7F523C1538C";
 
 bool GetSHA1File(const char* filePath, char* outHash)
 {
@@ -50,8 +51,11 @@ int main()
 	std::string nogore_path = path + "\\Fallout3ng.exe";
 	std::string backup_path = path + "\\Fallout3_backup.exe";
 	std::string nogore_backup_path = path + "\\Fallout3ng_backup.exe";
+	std::string temp_update_path = path +"\\Fallout3.exe.temp";
+
 	bool exeFound = GetSHA1File(exe_path.c_str(), outHash);
 	bool ngFound = GetSHA1File(nogore_path.c_str(), ngHash);
+
 	if (!exeFound && !ngFound) {
 		std::cout << "Couldn't open Fallout3.exe. Make sure the patcher is placed in Fallout 3 installation folder.\n";
 		system("@pause");
@@ -63,12 +67,34 @@ int main()
 		system("@pause");
 		return 0;
 	}
+
 	bool steamMode = (strcmp(outHash, f3_1704_steam) == 0);
 	bool gogMode = (strcmp(outHash, f3_1703_gog) == 0);
 	bool ngMode = (strcmp(ngHash, f3_1704_steam) == 0);
+	bool updateMode = (strcmp(outHash, f3_1703_mod_old) == 0);
 
-	if (!steamMode && !gogMode && !ngMode) {
+	if (!steamMode && !gogMode && !ngMode && !updateMode) {
 		std::cout << "Invalid executable.\n";
+		system("@pause");
+		return 0;
+	}
+
+	if (updateMode) {
+		std::cout << "Hash checks completed. Found previously patched executable.\n";
+		std::ifstream input(exe_path, std::ios::binary);
+		std::ofstream output(temp_update_path, std::ios::binary);
+		std::copy(
+			std::istreambuf_iterator<char>(input),
+			std::istreambuf_iterator<char>(),
+			std::ostreambuf_iterator<char>(output));
+		input.close();
+		output.close();
+		sprintf(commandline, "\"\"%s\\xdelta3.exe\" -v -d -f -s \"%s\\Fallout3.exe.temp\" \"%s\\patch_update.vcdiff\" \"%s\\Fallout3.exe\"\"", cPath, cPath, cPath, cPath);
+		system(commandline);
+		if (GetSHA1File(exe_path.c_str(), outHash) && (strcmp(outHash, f3_1703_mod) == 0)) {
+			std::cout << "\nPatching  completed successfully.\n";
+		}
+		remove(temp_update_path.c_str());
 		system("@pause");
 		return 0;
 	}
